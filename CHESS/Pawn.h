@@ -1,5 +1,6 @@
-#pragma once
+﻿#pragma once
 #include "figure.h"
+#include <vector>
 class Pawn : public figure
 {
 public:
@@ -9,7 +10,7 @@ public:
     std::string getImage();
 private:
     bool clear;
-    const std::pair<std::pair<int, int>, std::pair<int, int>> atack = { {-1,1},{1,1} };
+    const std::vector<std::pair<int, int>> atack = { {-1,1},{1,1} };
     const std::pair<int, int> step = { 0,1 };
 protected:
     std::string Image = "o";

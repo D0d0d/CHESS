@@ -12,7 +12,7 @@ figure::figure(std::pair<int, int> Coords, signed char Side)
 	this->white = Side;
 }
 
-int figure::move(std::pair<int, int> newCoords)
+int figure::move(std::pair<int, int> newCoords, bool isAtack)
 {
 	this->cords = newCoords;
 	return 0;

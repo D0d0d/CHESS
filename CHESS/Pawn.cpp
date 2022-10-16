@@ -16,7 +16,7 @@ int Pawn::move(std::pair<int, int> newCoords, bool isAtack)
 		newCoords.second - this->cords.second*this->white
 	};
 
-	if ((isAtack&&(dCoords == atack.first || dCoords == atack.second)) ||
+	if ((isAtack&&(std::find(atack.begin(), atack.end(), dCoords) != end(atack))) ||
 		(!isAtack&&(dCoords == this->step))) {
 			this->cords = newCoords;
 			return 0;

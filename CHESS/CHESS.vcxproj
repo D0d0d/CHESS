@@ -142,11 +142,13 @@
     <ClCompile Include="CHESS.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="figure.cpp" />
+    <ClCompile Include="King.cpp" />
     <ClCompile Include="Pawn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Field.h" />
     <ClInclude Include="figure.h" />
+    <ClInclude Include="King.h" />
     <ClInclude Include="Pawn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
