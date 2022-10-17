@@ -26,3 +26,12 @@ std::string King::getImage()
 {
 	return Image;
 }
+
+std::vector<std::pair<int, int>> King::UnderAtack()
+{
+	std::vector<std::pair<int, int>> buf;
+	for (auto& i_atack : step) {
+		buf.push_back(std::make_pair(this->cords.first + i_atack.first, this->cords.second + i_atack.second));
+	}
+	return buf;
+}

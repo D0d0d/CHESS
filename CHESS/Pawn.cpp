@@ -21,10 +21,19 @@ int Pawn::move(std::pair<int, int> newCoords, bool isAtack)
 			this->cords = newCoords;
 			return 0;
 		} else { return 1; }
-
 }
+
 
 std::string Pawn::getImage()
 {
 	return Image;
+}
+
+std::vector<std::pair<int, int>> Pawn::UnderAtack()
+{
+	std::vector<std::pair<int, int>> buf;
+	for (auto& i_atack : atack) {
+		buf.push_back(std::make_pair(this->cords.first + i_atack.first, this->cords.second + i_atack.second));
+	}
+	return buf;
 }

@@ -1,5 +1,6 @@
 #pragma once
 #include "figure.h"
+#include "King.h"
 #include <string>
 class Field
 {
@@ -9,7 +10,8 @@ public:
 	figure& getFigure(std::pair<int, int> coords);
 
 	int killFigure(std::pair<int,int> coords);
-
+	int Check(std::string pos);
+	int Check(std::pair <int, int> cords);
 	int moveFigure(std::string old_pos, std::string new_pos);
 	std::string getField();
 

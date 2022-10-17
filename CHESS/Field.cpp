@@ -30,6 +30,29 @@ int Field::killFigure(std::pair<int, int> coords)
 	return 0;
 }
 
+int Field::Check(std::string pos)
+{
+	std::pair<int, int> cords = translateCoords(pos);
+	for (auto& cell : this->field[cords.first][cords.second]->UnderAtack()) {
+		if (cell.first > 0 && cell.first < x && cell.second>0 && cell.second < y) {
+			if (dynamic_cast<King*>(this->field[cell.first][cell.second])!=nullptr) {
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
+int Field::Check(std::pair <int, int> cords)
+{
+	for (auto& cell : this->field[cords.first][cords.second]->UnderAtack()) {
+		if (cell.first > 0 && cell.first < x && cell.second>0 && cell.second < y) {
+			if (dynamic_cast<King*>(this->field[cell.first][cell.second]) != nullptr) {
+				return 0;
+			}
+		}
+	}
+	return 1;
+}
 int Field::moveFigure(std::string old_pos, std::string new_pos)
 {
 	if (!(old_pos.length() > 2 || new_pos.length() > 2)) {
@@ -40,6 +63,10 @@ int Field::moveFigure(std::string old_pos, std::string new_pos)
 			if (this->field[old_coords.first][old_coords.second]->move(new_coords, isAtack) == 0) {
 				this->field[new_coords.first][new_coords.second] = this->field[old_coords.first][old_coords.second];
 				this->field[old_coords.first][old_coords.second] = 0;
+				if (this->Check(new_coords)==0) {
+					return 2;
+				}
+				return 0;
 			}
 		}
 		return 1;

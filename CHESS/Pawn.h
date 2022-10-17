@@ -8,6 +8,7 @@ public:
     Pawn(std::pair<int, int> Coords, signed char Side);
     int move(std::pair<int, int> newCoords, bool isAtack);
     std::string getImage();
+    std::vector<std::pair<int, int>> UnderAtack();
 private:
     bool clear;
     const std::vector<std::pair<int, int>> atack = { {-1,1},{1,1} };

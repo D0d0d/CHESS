@@ -18,6 +18,11 @@ int figure::move(std::pair<int, int> newCoords, bool isAtack)
 	return 0;
 }
 
+std::vector<std::pair<int, int>> figure::UnderAtack()
+{
+	return std::vector<std::pair<int, int>>();
+}
+
 std::pair<int, int> figure::getCoords()
 {
 	return this->cords;
